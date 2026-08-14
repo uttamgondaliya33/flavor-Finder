@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background: #fff8f3;
+}
+
+/* Search Section */
+.recipe-page {
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.recipe-page h1 {
+    font-size: 48px;
+    color: #222;
+}
+
+.recipe-page p {
+    margin: 15px 0 35px;
+    color: #666;
+}
+
+/* Search */
+.search-box {
+    width: 700px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 18px 25px;
+    font-size: 17px;
+}
+
+.search-box button {
+    width: 70px;
+    border: none;
+    background: #ff6b35;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .3s;
+}
+
+.search-box button:hover {
+    background: #e55a28;
+}
+
+/* Filters */
+.filters {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    transition: .3s;
+    font-size: 15px;
+    color: #333;
+}
+
+.filters button:hover,
+.filters .active {
+    background: #ff6b35;
+    color: white;
+}
+
+/* Cards */
+.recipes-container {
+    width: 90%;
+    margin: 70px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    transition: .3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #222;
+}
+
+.content p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.content button {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    background: #ff6b35;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.content button:hover {
+    background: #e55a28;
+    transform: scale(1.02);
+}
+
+/* ===========================
+   Modal Overlay
+   =========================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+    overflow-y: auto;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 750px;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: modalSlideIn .4s ease;
+    margin: auto 0;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, .5);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.modal-close:hover {
+    background: #ff6b35;
+    transform: rotate(90deg);
+}
+
+/* Modal Image */
+.modal-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-badges {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+}
+
+.badge:first-child {
+    background: #ff6b35;
+}
+
+.badge:last-child {
+    background: #333;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.modal-cuisine {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+
+/* Stats Row */
+.modal-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.stat {
+    flex: 1;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: #fff8f3;
+    border-radius: 12px;
+}
+
+.stat > i {
+    font-size: 20px;
+    color: #ff6b35;
+}
+
+.stat div {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.stat-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Sections */
+.modal-section {
+    margin-bottom: 30px;
+}
+
+.modal-section h2 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-section h2 i {
+    color: #ff6b35;
+    font-size: 18px;
+}
+
+/* Ingredients */
+#modalIngredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#modalIngredients li {
+    padding: 10px 15px;
+    background: #fff8f3;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+#modalIngredients li:hover {
+    background: #ffe8dc;
+}
+
+#modalIngredients li::before {
+    content: "🥄";
+    font-size: 13px;
+}
+
+/* Instructions */
+#modalInstructions {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#modalInstructions li {
+    counter-increment: step;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+#modalInstructions li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ff6b35;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Tags */
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.modal-tags span {
+    padding: 6px 16px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #555;
+    text-transform: capitalize;
+}
+
+/* Favorite Button */
+.modal-fav-btn {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #ff6b35;
+    border-radius: 12px;
+    background: transparent;
+    color: #ff6b35;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.modal-fav-btn:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+.modal-fav-btn.favorited {
+    background: #ff6b35;
+    color: white;
+}
+
+.modal-fav-btn.favorited i {
+    font-weight: 900;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 600px) {
+    .recipe-page h1 {
+        font-size: 32px;
+    }
+
+    .modal-image {
+        height: 220px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-body h1 {
+        font-size: 22px;
+    }
+
+    .modal-stats {
+        gap: 10px;
+    }
+
+    .stat {
+        min-width: 80px;
+        padding: 10px;
+    }
+
+    #modalIngredients {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-section h2 {
+        font-size: 18px;
+    }
+}
+/* Toast */
+.fav-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #222;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    z-index: 2000;
+    opacity: 0;
+    transition: .3s;
+    white-space: nowrap;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+}
+
+.fav-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

@@ -1,0 +1,525 @@
+/* Categories Section */
+.categories {
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.categories h1 {
+    font-size: 48px;
+    color: #222;
+}
+
+.categories > p {
+    margin: 15px 0 50px;
+    color: #666;
+    font-size: 18px;
+}
+
+/* Category Cards Grid */
+.category-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    transition: .4s;
+}
+
+.category-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+}
+
+.category-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: .4s;
+}
+
+.category-card:hover img {
+    transform: scale(1.08);
+}
+
+.category-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    margin: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .7));
+    color: white;
+    font-size: 26px;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+/* ===========================
+   Category Header (after click)
+   =========================== */
+.cat-header {
+    margin-bottom: 50px;
+}
+
+.cat-header h1 {
+    font-size: 42px;
+    color: #222;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.cat-header p {
+    color: #888;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 2px solid #ff6b35;
+    border-radius: 30px;
+    background: transparent;
+    color: #ff6b35;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    margin-bottom: 20px;
+    font-family: Poppins, sans-serif;
+}
+
+.back-btn:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+/* ===========================
+   Category Recipe Cards Grid
+   =========================== */
+.cat-recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.cat-recipe-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    transition: .3s;
+}
+
+.cat-recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+}
+
+.cat-recipe-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.cat-card-content {
+    padding: 20px;
+}
+
+.cat-card-content h3 {
+    font-size: 19px;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+.cat-card-content p {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.cat-card-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.cat-view-btn {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    background: #ff6b35;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+    font-family: Poppins, sans-serif;
+}
+
+.cat-view-btn:hover {
+    background: #e55a28;
+    transform: scale(1.02);
+}
+
+/* ===========================
+   Modal Overlay
+   =========================== */
+.cat-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+    overflow-y: auto;
+}
+
+.cat-modal-overlay.active {
+    display: flex;
+}
+
+.cat-modal-content {
+    background: white;
+    border-radius: 20px;
+    width: 750px;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: catSlideIn .4s ease;
+    margin: auto 0;
+}
+
+@keyframes catSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.cat-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, .5);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.cat-modal-close:hover {
+    background: #ff6b35;
+    transform: rotate(90deg);
+}
+
+.cat-modal-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.cat-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cat-modal-badges {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.cat-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+}
+
+.cat-badge:first-child {
+    background: #ff6b35;
+}
+
+.cat-badge:last-child {
+    background: #333;
+}
+
+.cat-modal-body {
+    padding: 30px;
+}
+
+.cat-modal-body h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.cat-modal-cuisine {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+
+/* Stats */
+.cat-modal-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.cat-stat {
+    flex: 1;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: #fff8f3;
+    border-radius: 12px;
+}
+
+.cat-stat > i {
+    font-size: 20px;
+    color: #ff6b35;
+}
+
+.cat-stat div {
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-stat-label,
+.cat-label {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.cat-stat-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Sections */
+.cat-modal-section {
+    margin-bottom: 30px;
+}
+
+.cat-modal-section h2 {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cat-modal-section h2 i {
+    color: #ff6b35;
+    font-size: 18px;
+}
+
+/* Ingredients */
+.cat-ingredients {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.cat-ingredients li {
+    padding: 10px 15px;
+    background: #fff8f3;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.cat-ingredients li:hover {
+    background: #ffe8dc;
+}
+
+.cat-ingredients li.checked {
+    text-decoration: line-through;
+    opacity: .5;
+}
+
+.cat-ingredients li::before {
+    content: "🥄";
+    font-size: 13px;
+}
+
+/* Instructions */
+.cat-instructions {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cat-instructions li {
+    counter-increment: step;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.cat-instructions li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ff6b35;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Tags */
+.cat-modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.cat-modal-tags span {
+    padding: 6px 16px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #555;
+    text-transform: capitalize;
+}
+
+/* Favorite Button */
+.cat-fav-btn {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #ff6b35;
+    border-radius: 12px;
+    background: transparent;
+    color: #ff6b35;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: Poppins, sans-serif;
+}
+
+.cat-fav-btn:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+.cat-fav-btn.favorited {
+    background: #ff6b35;
+    color: white;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 600px) {
+    .categories h1,
+    .cat-header h1 {
+        font-size: 30px;
+    }
+
+    .category-card img {
+        height: 240px;
+    }
+
+    .category-card h3 {
+        font-size: 20px;
+    }
+
+    .cat-modal-image {
+        height: 220px;
+    }
+
+    .cat-modal-body {
+        padding: 20px;
+    }
+
+    .cat-modal-body h1 {
+        font-size: 22px;
+    }
+
+    .cat-modal-stats {
+        gap: 8px;
+    }
+
+    .cat-stat {
+        min-width: 80px;
+        padding: 10px;
+    }
+
+    .cat-ingredients {
+        grid-template-columns: 1fr;
+    }
+}

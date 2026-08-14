@@ -1,0 +1,128 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+body{
+    background:#fff8f3;
+    color:#333;
+}
+/* Hero */
+.about-hero{
+    padding:90px 10%;
+    text-align:center;
+    background:#ff6b35;
+    color:white;
+}
+.about-hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+.about-hero p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+/* Story */
+.story{
+    width:90%;
+    margin:80px auto;
+    display:flex;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+.story img{
+    width:100%;
+    border-radius:20px;
+}
+.left,.right{
+    flex:1;
+}
+.right h2{
+    font-size:40px;
+     margin-bottom:20px;
+}
+.right p{
+    line-height:1.8;
+    color:#666;
+}
+/* Features */
+.features{
+    width:90%;
+    margin:100px auto;
+    text-align:center;
+}
+.features h2{
+    margin-bottom:50px;
+    font-size:40px;
+}
+.feature-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+.feature{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+.feature i{
+    font-size:45px;
+    color:#ff6b35;
+    margin-bottom:20px;
+}
+.feature p{
+    color:#666;
+    margin-top:15px;
+}
+/* Stats */
+.stats{
+    background:#ff6b35;
+    color:white;
+    display:flex;
+    justify-content:space-around;
+    padding:70px 20px;
+    flex-wrap:wrap;
+    text-align:center;
+}
+.stat h2{
+    font-size:45px;
+}
+/* Developer */
+.developer{
+    width:80%;
+    margin:100px auto;
+    text-align:center;
+}
+.developer img{
+    width:180px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+.developer p{
+    margin-top:20px;
+    color:#666;
+    line-height:1.8;
+}
+/* CTA */
+.cta{
+   text-align:center;
+    padding:80px 20px;
+    background:#fff;
+}
+.cta h2{
+    margin-bottom:25px;
+    font-size:35px;
+}
+.cta button{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#ff6b35;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
